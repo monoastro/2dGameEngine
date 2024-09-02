@@ -30,7 +30,7 @@ namespace Engine
 
 		//view for letterbox effect
 		m_applicationData->view.setSize(width, height);
-		m_applicationData->view.setCenter( width/ 2, height/ 2 );
+		m_applicationData->view.setCenter( width/ 2.f, height/ 2.f );
 		this->m_applicationData->m_inputs->getLetterBoxView(m_applicationData->view, width, height);
 
 		//add the global and stack state
@@ -73,16 +73,6 @@ namespace Engine
 
 			this->m_delta = this->m_applicationData->m_clock.getElapsedTime();
 			//std::cout<<"FPS: "<<1.0/this->m_delta.asSeconds()<<"\n";
-/*							
- 								|
-								|
-							  pipe|
-								|
-							     \ /
-								.
-
-						microcontroller backend
-*/
 		}
 
 	}

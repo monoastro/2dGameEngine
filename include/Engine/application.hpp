@@ -8,7 +8,6 @@
 #include "inputManager.hpp"
 #include "definitions.hpp"
 
-#include <iostream>
 
 namespace Engine
 {

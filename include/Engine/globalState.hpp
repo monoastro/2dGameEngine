@@ -9,8 +9,6 @@
 #include "imgui.h"
 #include "imgui-SFML.h"
 
-#include <iostream>
-
 namespace Engine
 {
 	//wrapper for imgui as a state
@@ -26,7 +24,7 @@ namespace Engine
 		void Draw() override;
 
 	private:
-		void renderUI();
+		void renderBasicUI();
 
 		ImGuiWindowFlags windowFlags;
 		ImVec4 hexToRGBA(const std::string& hexColor);

@@ -29,16 +29,16 @@ void Engine::assetManager::loadFont(int id, const std::string &filePath)
     }
 }
 
-void Engine::assetManager::loadAudio(bool type, int id, const std::string &filePath) //types: 0 = music, 1 = soundeffect //SFML supports .wav but not .mp3
+void Engine::assetManager::loadAudio(bool type, int id, const std::string &filePath) //types: 0 = music, 1 = soundeffect  						//SFML supports .wav but not .mp3
 {
     if(type) //for  sound
     {
-        sf::SoundBuffer soundBuffer; //because only SoundBuffer has loadFromFile method
+        sf::SoundBuffer soundBuffer;
         if (soundBuffer.loadFromFile(filePath))
         {
             auto soundEffect = std::make_unique<sf::Sound>();
             soundEffect->setBuffer(soundBuffer);
-            m_soundEffects[id] = std::move(soundEffect); //Before destroying, we move the ownership to the map, which destroys it 
+            m_soundEffects[id] = std::move(soundEffect); //Before destruction, we move the ownership to the map
         } //else error
     }
     else //for music

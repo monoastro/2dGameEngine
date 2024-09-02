@@ -17,7 +17,7 @@ namespace Engine
 	{
 		if(!ImGui::SFML::Init(*(m_data->m_window)))
 		{
-			std::cout<<"ImGui done goofed up\n";
+			//std::cout<<"ImGui done goofed up\n";
 			exit(-1);
 		}
 
@@ -36,7 +36,7 @@ namespace Engine
 		if (!io.Fonts->IsBuilt()) {
 			if(!ImGui::SFML::UpdateFontTexture())
 			{
-				std::cout<<"ImGui done goofed up\n";
+				//std::cout<<"ImGui done goofed up\n";
 			}
 		}
 	}
@@ -56,6 +56,7 @@ namespace Engine
 			this->m_data->size.y = this->m_data->m_inputs->m_event.size.height;
 			this->m_data->m_inputs->getLetterBoxView(this->m_data->view, this->m_data->size.x, this->m_data->size.y);
 		}
+
 		//move and click; not click and move
 		if(this->m_data->m_inputs->m_event.type == sf::Event::MouseMoved)
 		{
@@ -84,7 +85,7 @@ namespace Engine
 		ImGui::SFML::Update(*(this->m_data->m_window), deltaTime);
 		//All immediate mode stuff and their consequences are updated here
 		//just list them as you please
-		renderUI();
+		renderBasicUI();
 		ImGui::ShowDemoWindow();
 	}
 
@@ -99,7 +100,7 @@ namespace Engine
 		ImGui::SFML::Render(*(this->m_data->m_window));
 	}
 
-	void imguiUI::renderUI()
+	void imguiUI::renderBasicUI()
 	{
 		ImGui::Begin("Settings");
 		ImGui::Button("Hello");
